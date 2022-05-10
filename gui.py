@@ -66,6 +66,21 @@ class MainWindow(QWidget):
 
 class Worker1(QThread):
     ImageUpdate = pyqtSignal(QImage)
+    def ResizeWithAspectRatio(image, width=None, height=None, inter=cv2.INTER_AREA):
+        dim = None
+        (h, w) = image.shape[:2]
+
+        if width is None and height is None:
+            return image
+        if width is None:
+            r = height / float(h)
+            dim = (int(w * r), height)
+        else:
+            r = width / float(w)
+            dim = (width, int(h * r))
+
+        return cv2.resize(image, dim, interpolation=inter)
+
     def run(self):
 
         # loading gaze tracking object
@@ -172,15 +187,16 @@ class Worker1(QThread):
                         attention = "Attention Score: " + str(round((self.person[i][0] / len(detected_frames)) * 100 ,2)) + " %"
 
                         try:
-                            cv2.putText(frame, self.text, (x1-40, y-10),cv2.LINE_AA, 2, (0, 255, 0), 5)
-                            cv2.putText(frame, attention, (x1-40, y-75),cv2.LINE_AA, 2, (0, 255, 0), 5)
+                            cv2.putText(frame, self.text, (x1-40, y-10),cv2.LINE_AA, 1, (0, 255, 0), 3)
+                            cv2.putText(frame, attention, (x1-40, y-75),cv2.LINE_AA, 1, (0, 255, 0), 3)
                         except:
                             continue
 
 
                 FlippedImage = frame
                 ConvertToQtFormat = QImage(FlippedImage.data, FlippedImage.shape[1], FlippedImage.shape[0], QImage.Format_RGB888)
-                Pic = ConvertToQtFormat.scaled(640, 480, Qt.KeepAspectRatio)
+                Pic = ConvertToQtFormat.scaled(1200, 900, Qt.KeepAspectRatio)
+
                 self.ImageUpdate.emit(Pic)
 
             print(self.person)
