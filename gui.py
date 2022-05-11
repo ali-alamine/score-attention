@@ -162,7 +162,8 @@ class Worker1(QThread):
                         cv2.rectangle(frame, (x1, y1), (x2, y2),(0, 0, 255), 2)
 
                         # cropping face from frame image
-                        crop_img = frame[y1:y2, x1:x2]
+                        # crop_img = frame[y1:y2, x1:x2]
+                        crop_img = frame[y1-50:y2+50, x1-50:x2+50]
 
                         try: 
                             # predicting gaze for a face
