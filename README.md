@@ -2,7 +2,7 @@
 
 # Dependencies
  **pip install pickle**
- [^2]: **pip install numpy**
+ **pip install numpy**
  [^3]: **pip install matplotlib**
  [^4]: **pip install PyQt5**
  [^5]: **pip install cv2**
