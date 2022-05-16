@@ -1,9 +1,9 @@
 # Attention-Score-GUI
 
 # Dependencies
- **pip install pickle**
- **pip install numpy**
- [^3]: **pip install matplotlib**
+ - **pip install pickle**
+ - **pip install numpy**
+ - **pip install matplotlib**
  [^4]: **pip install PyQt5**
  [^5]: **pip install cv2**
  [^6]: **pip install gaze_tracking**
