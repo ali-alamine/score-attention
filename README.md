@@ -1,7 +1,7 @@
 # Attention-Score-GUI
 
 # Dependencies
- [^1]: **pip install pickle**
+ **pip install pickle**
  [^2]: **pip install numpy**
  [^3]: **pip install matplotlib**
  [^4]: **pip install PyQt5**
