@@ -10,6 +10,6 @@
 
 # IMPORTANT
  **This step is _extremely_ important : 
-  - Install dlib, if your OS is windows, this step might require to install _cmake_ > - pip install cmake then pip install dlib**
+  - Install dlib, if your OS is windows, this step might require to install _cmake_ >  *pip install cmake then pip install dlib* **
 
  
